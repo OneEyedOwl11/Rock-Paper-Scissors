@@ -2,42 +2,28 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(playerSelection) {
-    playerSelection = prompt().toLowerCase;
     let computerSelection = computerPlay();
+    let result = "";
 
-    if ((playerSelection == 'rock' && computerSelection == 'rock')|| 
-    (playerSelection == 'paper' && computerSelection == 'paper') ||
-    (playerSelection == 'rock' && computerSelection == 'rock')){
-        console.log("Draw");
+    if (playerSelection == computerSelection){
+      result = ("Draw. " + playerSelection + " and " + computerSelection + "Are the same");
     }
     else if ((playerSelection == 'rock' && computerSelection == 'paper')|| 
     (playerSelection == 'paper' && computerSelection == 'scissor') ||
     (playerSelection == 'rock' && computerSelection == 'paper') ){
-        computerScore++;
-        console.log("Lose");
+        computerScore += 1;
+        result = ("Lose. " + playerSelection + " loses to " + computerSelection);
     }
     else if ((playerSelection == 'rock' && computerSelection == 'scissors')|| 
     (playerSelection == 'paper' && computerSelection == 'rock') ||
     (playerSelection == 'rock' && computerSelection == 'scissors'))
      {
-        humanScore++;
-        console.log("Win");
+        humanScore += 1;
+        result = ("Win. " + playerSelection + " beats " + computerSelection);
     }
+    document.getElementById('result').innerHTML = result;
   }
-  //comment
-  function game (){
-      if (humanScore == 5){
-        console.log("Human has won, well done human")
-      }
 
-      else if (computerScore == 5) {
-        console.log("Computer has won")
-      }
-
-      else {
-          playRound();
-      }
-  }
   function alertIfIncorrect(){
       if (playerSelection !== 'rock' || playerSelection !== 'paper' || playerSelection !== 'scissors') {
           alert("Please choose: Rock, Paper or Scissors");
@@ -45,9 +31,14 @@ function playRound(playerSelection) {
   }
 
 
-  const myArray = ["rock", "paper", "scissors"];
+const myArray = ["rock", "paper", "scissors"];
 
 function computerPlay() {
   return myArray[~~(Math.random() * myArray.length)];
 }
-  window.onload = game();
+const buttons = document.querySelectorAll('input')
+buttons.forEach(button => {
+  button.addEventListener('click', function(){
+    playRound(button.value)
+  })
+})
