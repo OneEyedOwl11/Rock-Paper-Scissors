@@ -1,0 +1,4 @@
+create header top center of page
+
+position input buttons in middle of page
+center results below the choices
