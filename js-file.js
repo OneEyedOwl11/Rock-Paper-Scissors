@@ -28,7 +28,7 @@ function playRound(playerSelection) {
         result = ("Lose. " + playerSelection + " loses to " + computerSelection + 
         '<br><br> Your Score: ' + humanScore + " Computer Score: " + computerScore);
         if (computerScore == 5) {
-          result += '<br><br> You lost the game!'
+          result += '<br> You lost the game!'
           restartGame()
         }
     }
@@ -37,7 +37,7 @@ function playRound(playerSelection) {
         result = ("Win. " + playerSelection + " beats " + computerSelection + 
         '<br><br> Your Score: ' + humanScore + " Computer Score: " + computerScore);
         if (humanScore == 5) {
-          result += '<br><br> You won the game!'
+          result += '<br> You won the game!'
           restartGame()
         }
     }
