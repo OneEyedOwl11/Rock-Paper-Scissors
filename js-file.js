@@ -23,7 +23,7 @@ function playRound(playerSelection) {
     }
     else if ((playerSelection == 'rock' && computerSelection == 'paper')|| 
     (playerSelection == 'paper' && computerSelection == 'scissors') ||
-    (playerSelection == 'rock' && computerSelection == 'paper') ){
+    (playerSelection == 'scissors' && computerSelection == 'paper') ){
         computerScore += 1;
         result = ("Lose. " + playerSelection + " loses to " + computerSelection + 
         '<br><br> Your Score: ' + humanScore + " Computer Score: " + computerScore);
